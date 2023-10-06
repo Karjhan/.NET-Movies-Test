@@ -1,10 +1,14 @@
 using API.Extensions;
+using Infrastructure.Data;
+using Infrastructure.Data.DataContexts;
+using Microsoft.EntityFrameworkCore;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-
+builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
@@ -22,5 +26,20 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+var context = services.GetRequiredService<MoviesContext>();
+var env = services.GetRequiredService<IHostingEnvironment>();
+var logger = services.GetRequiredService<ILogger<Program>>();
+try
+{
+    await context.Database.MigrateAsync();
+    await MoviesContextSeed.SeedAsync(context,env);
+}
+catch (Exception e)
+{
+    logger.LogError(e, "An error occured during migration!");
+}
 
 app.Run();

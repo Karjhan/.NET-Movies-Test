@@ -1,0 +1,410 @@
+{
+    "movies": [
+        {
+            "name": "Everything Everywhere All at Once",
+            "description": "A middle-aged Chinese immigrant is swept up into an insane adventure in which she alone can save existence by exploring other universes and connecting with the lives she could have led.",
+            "year": 2022,
+            "rating": 7.8,
+            "genre": [
+                "Action",
+                "Adventure",
+                "Comedy"
+            ],
+            "stars": [
+                "Michelle Yeoh",
+                "Stephanie Hsu",
+                "Jamie Lee Curtis"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/Everything_Everywhere_All_at_Once.jpg/220px-Everything_Everywhere_All_at_Once.jpg",
+            "imdb": "https://www.imdb.com/title/tt6710474/"
+        },
+        {
+            "name": "CODA",
+            "description": "As a CODA (Child of Deaf Adults) Ruby is the only hearing person in her deaf family. When the family's fishing business is threatened, Ruby finds herself torn between pursuing her passion at Berklee College of Music and her fear of abandoning her parents.",
+            "year": 2021,
+            "rating": 8,
+            "genre": [
+                "Comedy",
+                "Drama",
+                "Music"
+            ],
+            "stars": [
+                "Emilia Jones",
+                "Marlee Matlin",
+                "Troy Kotsur"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/8/89/Coda_poster.jpeg",
+            "imdb": "https://www.imdb.com/title/tt10366460/"
+        },
+        {
+            "name": "Nomadland",
+            "description": "A woman in her sixties, after losing everything in the Great Recession, embarks on a journey through the American West, living as a van-dwelling modern-day nomad.",
+            "year": 2020,
+            "rating": 7.3,
+            "genre": [
+                "Drama"
+            ],
+            "stars": [
+                "Frances McDormand",
+                "David Strathairn",
+                "Linda May"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/a/a5/Nomadland_poster.jpeg",
+            "imdb": "https://www.imdb.com/title/tt9770150/"
+        },
+        {
+            "name": "Parasite",
+            "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+            "year": 2019,
+            "rating": 8.5,
+            "genre": [
+                "Drama",
+                "Thriller"
+            ],
+            "stars": [
+                "Song Kang-ho",
+                "Lee Sun-kyun",
+                "Cho Yeo-jeong"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png",
+            "imdb": "https://www.imdb.com/title/tt6751668/"
+        },
+        {
+            "name": "Green Book",
+            "description": "A working-class Italian-American bouncer becomes the driver for an African-American classical pianist on a tour of venues through the 1960s American South.",
+            "year": 2018,
+            "rating": 8.2,
+            "genre": [
+                "Biography",
+                "Comedy",
+                "Drama"
+            ],
+            "stars": [
+                "Viggo Mortensen",
+                "Mahershala Ali",
+                "Linda Cardellini"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/5/5b/Green_Book_%282018_poster%29.png",
+            "imdb": "https://www.imdb.com/title/tt6966692/"
+        },
+        {
+            "name": "The Shape of Water",
+            "description": "At a top secret research facility in the 1960s, a lonely janitor forms a unique relationship with an amphibious creature that is being held in captivity.",
+            "year": 2017,
+            "rating": 7.3,
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Romance"
+            ],
+            "stars": [
+                "Sally Hawkins",
+                "Octavia Spencer",
+                "Michael Shannon"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/3/37/The_Shape_of_Water_%28film%29.png",
+            "imdb": "https://www.imdb.com/title/tt5580390"
+        },
+        {
+            "name": "Moonlight",
+            "description": "Moonlight",
+            "year": 2016,
+            "rating": 7.4,
+            "genre": [
+                "Drama"
+            ],
+            "stars": [
+                "Mahershala Ali",
+                "Naomie Harris",
+                "Trevante Rhodes"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/8/84/Moonlight_%282016_film%29.png",
+            "imdb": "https://www.imdb.com/title/tt4975722/"
+        },
+        {
+            "name": "Spotlight",
+            "description": "Spotlight",
+            "year": 2015,
+            "rating": 8.1,
+            "genre": [
+                "Biography",
+                "Crime",
+                "Drama"
+            ],
+            "stars": [
+                "Mark Ruffalo",
+                "Michael Keaton",
+                "Rachel McAdams"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/f/f3/Spotlight_%28film%29_poster.jpg",
+            "imdb": "https://www.imdb.com/title/tt1895587/"
+        },
+        {
+            "name": "Birdman or (The Unexpected Virtue of Ignorance)",
+            "description": "Birdman or (The Unexpected Virtue of Ignorance)",
+            "year": 2014,
+            "rating": 7.7,
+            "genre": [
+                "Comedy",
+                "Drama"
+            ],
+            "stars": [
+                "Michael Keaton",
+                "Zach Galifianakis",
+                "Edward Norton"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/6/63/Birdman_poster.png",
+            "imdb": "https://www.imdb.com/title/tt2562232/"
+        },
+        {
+            "name": "12 Years a Slave",
+            "description": "In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.",
+            "year": 2013,
+            "rating": 8.1,
+            "genre": [
+                "Biography",
+                "Drama",
+                "History"
+            ],
+            "stars": [
+                "Chiwetel Ejiofor",
+                "Michael Kenneth Williams",
+                "Michael Fassbender"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/5/5c/12_Years_a_Slave_film_poster.jpg",
+            "imdb": "https://www.imdb.com/title/tt2024544/"
+        },
+        {
+            "name": "Argo",
+            "description": "Argo",
+            "year": 2012,
+            "rating": 7.7,
+            "genre": [
+                "Biography",
+                "Drama",
+                "Thriller"
+            ],
+            "stars": [
+                "Ben Affleck",
+                "Bryan Cranston",
+                "John Goodman"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/e/e1/Argo2012Poster.jpg",
+            "imdb": "https://www.imdb.com/title/tt1024648"
+        },
+        {
+            "name": "The Artist",
+            "description": "An egomaniacal film star develops a relationship with a young dancer against the backdrop of Hollywood's silent era.",
+            "year": 2011,
+            "rating": 7.9,
+            "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+            ],
+            "stars": [
+                "Jean Dujardin",
+                "Berenice Bejo",
+                "John Goodman"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/a/a4/The_Artist_Poster.jpg",
+            "imdb": "https://www.imdb.com/title/tt1655442"
+        },
+        {
+            "name": "The King's Speech",
+            "description": "The story of King George VI, his unexpected ascension to the throne of the British Empire in 1936, and the speech therapist who helped the unsure monarch overcome his stammer.",
+            "year": 2010,
+            "rating": 8.0,
+            "genre": [
+                "Biography",
+                "Drama",
+                "History"
+            ],
+            "stars": [
+                "Colin Firth",
+                "Geoffrey Rush",
+                "Helena Bonham Carter"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/4/4a/The_King%27s_Speech_poster.jpg",
+            "imdb": "https://www.imdb.com/title/tt1504320/"
+        },
+        {
+            "name": "The Hurt Locker",
+            "description": "During the Iraq War, a Sergeant recently assigned to an army bomb squad is put at odds with his squad mates due to his maverick way of handling his work.",
+            "year": 2009,
+            "rating": 7.5,
+            "genre": [
+                "Drama",
+                "Thriller",
+                "War"
+            ],
+            "stars": [
+                "Jeremy Renner",
+                "Anthony Mackie",
+                "Brian Geraghty"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/6/6c/HLposterUSA2.jpg",
+            "imdb": "https://www.imdb.com/title/tt0887912/"
+        },
+        {
+            "name": "Slumdog Millionaire",
+            "description": "A Mumbai teenager reflects on his life after being accused of cheating on the Indian version of \"Who Wants to be a Millionaire?\".",
+            "year": 2008,
+            "rating": 8.0,
+            "genre": [
+                "Crime",
+                "Drama",
+                "Romance"
+            ],
+            "stars": [
+                "Dev Patel",
+                "Freida Pinto",
+                "Saurabh Shukla"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/9/92/Slumdog_Millionaire_poster.png",
+            "imdb": "https://www.imdb.com/title/1234/"
+        },
+        {
+            "name": "No Country for Old Men",
+            "description": "Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash near the Rio Grande.",
+            "year": 2007,
+            "rating": 8.2,
+            "genre": [
+                "Crime",
+                "Drama",
+                "Thriller"
+            ],
+            "stars": [
+                "Tommy Lee Jones",
+                "Javier Bardem",
+                "Josh Brolin"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/8/8b/No_Country_for_Old_Men_poster.jpg",
+            "imdb": "https://www.imdb.com/title/tt0477348/"
+        },
+        {
+            "name": "The Departed",
+            "description": "The Departed",
+            "year": 2006,
+            "rating": 8.5,
+            "genre": [
+                "Crime",
+                "Drama",
+                "Thriller"
+            ],
+            "stars": [
+                "Leonardo DiCaprio",
+                "Matt Damon",
+                "Jack Nicholson"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/5/50/Departed234.jpg",
+            "imdb": "https://www.imdb.com/title/tt0407887/"
+        },
+        {
+            "name": "Crash",
+            "description": "Los Angeles citizens with vastly separate lives collide in interweaving stories of race, loss and redemption.",
+            "year": 2004,
+            "rating": 7.7,
+            "genre": [
+                "Crime",
+                "Drama",
+                "Thriller"
+            ],
+            "stars": [
+                "Don Cheadle",
+                "Sandra Bullock",
+                "Thandiwe Newton"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/d/d0/Crash_ver2.jpg",
+            "imdb": "https:/www.imdb.com/title/tt0375679/"
+        },
+        {
+            "name": "Million Dollar Baby",
+            "description": "Frankie, an ill-tempered old coach, reluctantly agrees to train aspiring boxer Maggie. Impressed with her determination and talent, he helps her become the best and the two soon form a close bond.",
+            "year": 2004,
+            "rating": 8.1,
+            "genre": [
+                "Drama",
+                "Sport"
+            ],
+            "stars": [
+                "Hilary Swank",
+                "Clint Eastwood",
+                "Morgan Freeman"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/d/d3/Million_Dollar_Baby_poster.jpg",
+            "imdb": "https://www.imdb.com/title/tt0405159/"
+        },
+        {
+            "name": "The Lord of the Rings: The Return of the King",
+            "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+            "year": 2003,
+            "rating": 9,
+            "genre": [
+                "Action",
+                "Adventure",
+                "Drama"
+            ],
+            "stars": [
+                "Elijah Wood",
+                "Viggo Mortensen",
+                "Ian McKellen"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/2/23/The_Lord_of_the_Rings%2C_TROTK_%282003%29.jpg",
+            "imdb": "https://www.imdb.com/title/tt0167260/"
+        },
+        {
+            "name": "Chicago",
+            "description": "Chicago",
+            "year": 2002,
+            "rating": 7.2,
+            "genre": [
+                "Comedy",
+                "Crime",
+                "Musical"
+            ],
+            "stars": [
+                "Renee Zellweger",
+                "Catherine Zeta-Jones",
+                "Richard Gere"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/f/f6/Chicago_%282002_film%29.png",
+            "imdb": "https://www.imdb.com/title/tt0299658/"
+        },
+        {
+            "name": "A Beautiful Mind",
+            "description": "After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.",
+            "year": 2001,
+            "rating": 8.2,
+            "genre": [
+                "Biography",
+                "Drama"
+            ],
+            "stars": [
+                "Russell Crowe",
+                "Ed Harris",
+                "Jennifer Connelly"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/b/b8/A_Beautiful_Mind_Poster.jpg",
+            "imdb": "https://www.imdb.com/title/tt0268978/"
+        },
+        {
+            "name": "Gladiator",
+            "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+            "year": 2000,
+            "rating": 8.5,
+            "genre": [
+                "Action",
+                "Adventure",
+                "Drama"
+            ],
+            "stars": [
+                "Russell Crowe",
+                "Joaquin Phoenix",
+                "Connie Nielsen"
+            ],
+            "cover": "https://upload.wikimedia.org/wikipedia/en/f/fb/Gladiator_%282000_film_poster%29.png",
+            "imdb": "https://www.imdb.com/title/tt0172495/"
+        }
+    ]
+}

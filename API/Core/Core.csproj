@@ -7,8 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Entities\" />
-      <Folder Include="Interfaces\" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
     </ItemGroup>
+
 
 </Project>

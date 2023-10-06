@@ -14,6 +14,7 @@ public static class ApplicationServicesExtensions
         // Add AutoMapper for object mapping
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         // Add entity dbContext for app, add postgreSQL connection for dbContext
+        services.AddControllers().AddNewtonsoftJson(option => option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         services.AddDbContext<MoviesContext>(options =>
         {
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));

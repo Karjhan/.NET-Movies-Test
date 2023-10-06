@@ -29,7 +29,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         return await ApplySpecification(specification).FirstOrDefaultAsync();
     }
 
-    public async Task<IReadOnlyList<T>> GetAllWithSpecificationAsyn(ISpecification<T> specification)
+    public async Task<IReadOnlyList<T>> GetAllWithSpecificationAsync(ISpecification<T> specification)
     {
         return await ApplySpecification(specification).ToListAsync();
     }

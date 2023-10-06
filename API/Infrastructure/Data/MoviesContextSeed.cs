@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using System.Text.RegularExpressions;
+using Core.Entities;
 using Infrastructure.Data.DataContexts;
 using Microsoft.AspNetCore.Hosting;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -9,7 +10,7 @@ public class MoviesContextSeed
 {
     public static async Task SeedAsync(MoviesContext context, IHostingEnvironment _environment)
     {
-        if (!Directory.EnumerateFileSystemEntries(_environment.WebRootPath + "\\images").Any())
+        if (!Directory.EnumerateFileSystemEntries(_environment.WebRootPath + "\\images\\movies").Any())
         {
             string jsonString = File.ReadAllText("../Infrastructure/Data/SeedData/movies.json");
             IncomingData moviesData = JsonSerializer.Deserialize<IncomingData>(jsonString);
@@ -20,7 +21,8 @@ public class MoviesContextSeed
                     var uri = new Uri(data.cover);
                     var uriWithoutQuery = uri.GetLeftPart(UriPartial.Path);
                     var fileExtension = Path.GetExtension(uriWithoutQuery);
-                    var path = Path.Combine(_environment.WebRootPath + "\\images", $"{data.name.Replace(" ", "_")}{fileExtension}");
+                    var fileName = Regex.Replace(data.name.Replace(" ", "_"), @"[\\/:*?^<>|]", "_");
+                    var path = Path.Combine(_environment.WebRootPath + "\\images\\movies", $"{fileName}{fileExtension}");
                     var imageBytes = await httpClient.GetByteArrayAsync(uri);
                     await File.WriteAllBytesAsync(path, imageBytes);
                 }
@@ -52,13 +54,17 @@ public class MoviesContextSeed
             }
             foreach (var data in moviesData.movies)
             {
+                var uri = new Uri(data.cover);
+                var uriWithoutQuery = uri.GetLeftPart(UriPartial.Path);
+                var fileExtension = Path.GetExtension(uriWithoutQuery);
+                var fileName = Regex.Replace(data.name.Replace(" ", "_"), @"[\\/:*?^<>|]", "_");
                 Movie newMovie = new Movie()
                 {
                     Name = data.name,
                     Description = data.description,
                     Year = data.year,
                     Rating = data.rating,
-                    CoverURL = data.cover,
+                    CoverURL = $"/images/movies/{fileName}{fileExtension}",
                     ImdbURL = data.imdb,
                     Genres = new List<Genre>(),
                     Actors = new List<Actor>()

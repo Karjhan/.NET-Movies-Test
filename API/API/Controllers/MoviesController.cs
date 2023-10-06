@@ -46,4 +46,21 @@ public class MoviesController : BaseAPIController
         MovieDTO result = _mapper.Map<Movie, MovieDTO>(movie);
         return Ok(result);
     }
+    
+    [HttpGet("actors")]
+    public async Task<ActionResult<IReadOnlyList<ActorDTO>>> GetActors()
+    {
+        ISpecification<Actor> specification = new ActorsWithMoviesSpecification();
+        IReadOnlyList<Actor> actors = await _actorRepository.GetAllWithSpecificationAsync(specification);
+        IReadOnlyList<ActorDTO> result = _mapper.Map<IReadOnlyList<Actor>, IReadOnlyList<ActorDTO>>(actors);
+        return Ok(result);
+    }
+        
+    [HttpGet("genres")]
+    public async Task<ActionResult<IReadOnlyList<GenreDTO>>> GetGenres()
+    {
+        IReadOnlyList<Genre> genres = await _genreRepository.GetAllAsync();
+        IReadOnlyList<GenreDTO> result = _mapper.Map<IReadOnlyList<Genre>, IReadOnlyList<GenreDTO>>(genres);
+        return Ok(result);
+    }
 }

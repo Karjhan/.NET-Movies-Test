@@ -9,7 +9,7 @@ public class APIResponse
     public APIResponse(int statusCode, string message = null)
     {
         StatusCode = statusCode;
-        Message = message ?? GetDefaultMessageForStatusCode(statusCode);
+        Message = message is null ? GetDefaultMessageForStatusCode(statusCode) : message;
     }
 
     private string GetDefaultMessageForStatusCode(int statusCode)

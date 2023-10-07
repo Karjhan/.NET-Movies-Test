@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.Middlewares;
 using Infrastructure.Data;
 using Infrastructure.Data.DataContexts;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,9 @@ builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
+
+// Add the ExceptionMiddleware at start of pipeline + StatusCodePagesWithReExecute for 
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 // Configure app to serve static files (default: wwwroot)

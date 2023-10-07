@@ -12,6 +12,8 @@ builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
+// Configure the HTTP request pipeline.
+app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 // Configure app to serve static files (default: wwwroot)
 app.UseStaticFiles();

@@ -13,6 +13,7 @@ public class SpecificationEvaluator<T> where T : BaseEntity
         {
             query = query.Where(specification.Criteria);
         }
+        
         if (specification.OrderBy is not null)
         {
             query = query.OrderBy(specification.OrderBy);
@@ -20,6 +21,12 @@ public class SpecificationEvaluator<T> where T : BaseEntity
         {
             query = query.OrderByDescending(specification.OrderByDescending);
         }
+        
+        if (specification.IsPagingEnabled)
+        {
+            query = query.Skip(specification.Skip).Take(specification.Take);
+        }
+        
         query = specification.Includes.Aggregate(query, (current, include) => current.Include(include));
         return query; 
     }

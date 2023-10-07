@@ -1,4 +1,5 @@
 ﻿using API.DTO;
+using API.Helpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -26,12 +27,14 @@ public class MoviesController : BaseAPIController
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<MovieDTO>>> GetMovies([FromQuery] MovieSpecificationParams movieParams)
+    public async Task<ActionResult<Pagination<MovieDTO>>> GetMovies([FromQuery] MovieSpecificationParams movieParams)
     {
-        ISpecification<Movie> specification = new MoviesWithActorsAndGenresSpecification(movieParams);
-        IReadOnlyList<Movie> movies = await _movieRepository.GetAllWithSpecificationAsync(specification);
+        ISpecification<Movie> mainSpecification = new MoviesWithActorsAndGenresSpecification(movieParams);
+        ISpecification<Movie> countSpecification = new MoviesWithFiltersCountSpecification(movieParams);
+        int totalItems = await _movieRepository.CountAsync(countSpecification);
+        IReadOnlyList<Movie> movies = await _movieRepository.GetAllWithSpecificationAsync(mainSpecification);
         IReadOnlyList<MovieDTO> result = _mapper.Map<IReadOnlyList<Movie>, IReadOnlyList<MovieDTO>>(movies);
-        return Ok(result);
+        return Ok(new Pagination<MovieDTO>(movieParams.PageIndex, movieParams.PageSize, totalItems, result));
     }
 
     [HttpGet("{id}")]

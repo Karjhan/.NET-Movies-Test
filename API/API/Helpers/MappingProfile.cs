@@ -14,5 +14,9 @@ public class MappingProfile : Profile
             .ForMember(destMember => destMember.Actors,
                 options => options.MapFrom(source => source.Actors.Select(actor => actor.Name)))
             .ForMember(destMember => destMember.CoverURL, options => options.MapFrom<MovieCoverURLProfile>());
+        CreateMap<Actor, ActorDTO>()
+            .ForMember(destMember => destMember.Movies,
+                options => options.MapFrom(source => source.Movies.Select(movie => movie.Name)));
+        CreateMap<Genre, GenreDTO>();
     }
 }

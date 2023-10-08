@@ -1,0 +1,9 @@
+.page-item .page-link {
+    color: whitesmoke !important;
+    background: rgba(40, 42, 58, 0.8) !important;
+    border-color: black !important;
+}
+
+.page-item.active{
+    background: rgba(40, 42, 58, 0.9) !important;
+}

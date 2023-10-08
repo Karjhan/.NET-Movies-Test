@@ -25,7 +25,7 @@ app.UseStaticFiles();
 app.UseSwaggerDocumentation();
 
 // Apply defined cors policy to exe.
-app.UseCors("CorsPolicy");
+app.UseCors("DefaultCorsPolicy");
 
 app.UseHttpsRedirection();
 

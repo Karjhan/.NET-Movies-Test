@@ -12,7 +12,8 @@ public class MoviesContextSeed
     public static async Task SeedAsync(MoviesContext context, IHostingEnvironment _environment)
     {
         var mainPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        if (!Directory.EnumerateFileSystemEntries(_environment.WebRootPath + "\\images\\movies").Any())
+        var staticsPath = _environment.IsDevelopment() ? _environment.WebRootPath + "\\images\\movies" : _environment.WebRootPath + "/images/movies";
+        if (!Directory.EnumerateFileSystemEntries(staticsPath).Any())
         {
             string jsonString = File.ReadAllText(mainPath + "/Data/SeedData/movies.json");
             IncomingData moviesData = JsonSerializer.Deserialize<IncomingData>(jsonString);

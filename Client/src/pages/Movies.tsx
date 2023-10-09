@@ -41,8 +41,8 @@ const Movies = (props: { setSpinner: (arg0: boolean) => void; }) => {
             <DataTable data={moviesData.data} headers={headers} />
           </Col>
         </Row>
-        <Row>
-          <Col className="d-flex justify-content-center mt-4">
+        <Row className="mt-4">
+          <Col className="d-flex justify-content-center">
             <CustomPagination paginationData={moviesData} setPagination={setMovieDataParams} paginationParams={movieDataParams}/>
           </Col>
         </Row>

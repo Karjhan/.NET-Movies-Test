@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: moviesFrontend
+    image: Movie-Test-Client-Image
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BACKEND_URL=https://localhost:5001/api
+
+  backend:
+    container_name: moviesBackendAPI
+    image: Movie-Test-Backend-Image
+    ports:
+      - "5001:5001"
+    depends_on:
+      - database
+    environment:
+      - ASPNETCORE_ENVIRONMENT: Development
+      - ConnectionStrings_DefaultConnection: "Host=database;Port=5432;Database=movies;Username=postgres;Password=password"
+    
+  database:
+    container_name: moviesDatabase
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: movies
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
+    

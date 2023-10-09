@@ -10,7 +10,7 @@ const CustomPagination = <T extends object>(props: ICustomPaginationProps<T> & {
             <Pagination.First />
             <Pagination.Prev />
             {Array.from({ length: Math.ceil(props.paginationData.count / props.paginationData.pageSize) }).map((_, index) =>
-                <Pagination.Item active={index + 1 === props.paginationData.pageIndex} key={index} onClick={(event) => {
+                <Pagination.Item active={index + 1 === props.paginationData.pageIndex} disabled={index + 1 === props.paginationData.pageIndex} key={index} onClick={(event) => {
                     event.preventDefault();
                     let newMovieFetchParams: IMovieFetchParams = { ...props.paginationParams, pageIndex: index+1 };
                     props.setPagination(newMovieFetchParams);

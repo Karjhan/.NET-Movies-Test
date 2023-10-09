@@ -5,23 +5,21 @@ import DataTable from '../components/DataTable/DataTable';
 import CustomPagination from '../components/Pagination/CustomPagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { IMovieFetchParams } from '../shared/Models/movieFetchParams';
+import fetchMovies from '../shared/Utils/fetchMovies';
+
+const defaultMovieFetchParams: IMovieFetchParams = { pageIndex: 1, pageSize: 5};
 
 const Movies = (props: { setSpinner: (arg0: boolean) => void; }) => {
   const [moviesData, setMoviesData] = useState<IPagination<Array<IMovie>>>();
   const [headers, setHeaders] = useState<Array<string>>();
-  const [changePagination, setChangePagination] = useState<boolean>(false);
+  const [movieDataParams, setMovieDataParams] = useState<IMovieFetchParams>(defaultMovieFetchParams);
 
   useEffect(() => {
     const fetchMoviesData = () => {
       props.setSpinner(true);
       setTimeout(async () => { 
-        const incomingJson = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/Movies?PageIndex=${moviesData === undefined ? 1 : moviesData.pageIndex}&PageSize=${moviesData === undefined ? 5 : moviesData.pageSize}`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
-          },
-        });
-        const moviesDataObject = await incomingJson.json();
+        const moviesDataObject = await fetchMovies(movieDataParams);
         setMoviesData(moviesDataObject);
         let allKeys: Array<string> = Object.keys(moviesDataObject.data[0]);
         const idIndex: number = allKeys.indexOf("id");
@@ -32,7 +30,7 @@ const Movies = (props: { setSpinner: (arg0: boolean) => void; }) => {
     }
     fetchMoviesData();
     return;
-  }, [changePagination])
+  }, [movieDataParams])
 
   return (
     <>
@@ -43,9 +41,9 @@ const Movies = (props: { setSpinner: (arg0: boolean) => void; }) => {
             <DataTable data={moviesData.data} headers={headers} />
           </Col>
         </Row>
-        <Row>
-          <Col className="d-flex justify-content-center mt-4">
-            <CustomPagination paginationData={moviesData} setPagination={setMoviesData} setChangeFlag={setChangePagination} flag={changePagination}/>
+        <Row className="mt-4">
+          <Col className="d-flex justify-content-center">
+            <CustomPagination paginationData={moviesData} setPagination={setMovieDataParams} paginationParams={movieDataParams}/>
           </Col>
         </Row>
       </>}

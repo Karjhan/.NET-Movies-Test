@@ -13,11 +13,23 @@ const DataTable = <T extends object>(props: IDataTableProps<T> & { children?: Re
                 </tr> 
             </thead>
             <tbody>
-                {props.data.map((element, index1) =>
+                {props.data.map((element : any, index1 : number) =>
                     <tr key={index1}>
-                        {props.headers.map((title, index2) => 
+                        {props.headers.map((title, index2 : number) => 
                             <td key={index1.toString() + index2.toString()}>
-                                {title.toUpperCase() === "COVERURL" ? <img src={`${element[title]}`} /> : (title.toUpperCase() === "IMDBURL" ? <a href={element[title]}>{element[title]}</a> : <>{element[title]}</>)}
+                                {Array.isArray(element[title])
+                                    ?
+                                    <ul className='list-unstyled'>{element[title].map((elem: any, index3: number) => <li key={index1.toString() + index2.toString() + index3.toString()}>{elem}</li>)}</ul>
+                                    :
+                                    (title.toUpperCase() === "COVERURL"
+                                        ?
+                                        <img src={`${element[title]}`} />
+                                        :
+                                        (title.toUpperCase() === "IMDBURL"
+                                            ?
+                                            <a href={element[title]}>{element[title]}</a>
+                                            :
+                                            <>{element[title]}</>))}
                             </td>
                         )}
                     </tr>

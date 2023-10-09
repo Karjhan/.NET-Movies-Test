@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: moviesfrontend
+    build:
+      context: ./Client
+      dockerfile: Dockerfile 
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    links:
+      - backend
+    environment:
+      - VITE_BACKEND_API_URL=https://backend:5001/api
+
+  backend:
+    container_name: moviesbackendapi
+    build:
+      context: ./API
+      dockerfile: Dockerfile 
+    ports:
+      - "5001:5001"
+    depends_on:
+      - database
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings_DefaultConnection=Host=database;Database=movies;Port=5432;Username=postgres;Password=password;Pooling=true;
+    
+  database:
+    container_name: moviesdatabase
+    image: postgres:latest
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: movies
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:  

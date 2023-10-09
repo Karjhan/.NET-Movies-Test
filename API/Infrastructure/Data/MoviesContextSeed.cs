@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Reflection;
+using System.Text.RegularExpressions;
 using Core.Entities;
 using Infrastructure.Data.DataContexts;
 using Microsoft.AspNetCore.Hosting;
@@ -10,9 +11,11 @@ public class MoviesContextSeed
 {
     public static async Task SeedAsync(MoviesContext context, IHostingEnvironment _environment)
     {
-        if (!Directory.EnumerateFileSystemEntries(_environment.WebRootPath + "\\images\\movies").Any())
+        var mainPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        var staticsPath = _environment.IsDevelopment() ? _environment.WebRootPath + "\\images\\movies" : _environment.WebRootPath + "/images/movies";
+        if (!Directory.EnumerateFileSystemEntries(staticsPath).Any())
         {
-            string jsonString = File.ReadAllText("../Infrastructure/Data/SeedData/movies.json");
+            string jsonString = File.ReadAllText(mainPath + "/Data/SeedData/movies.json");
             IncomingData moviesData = JsonSerializer.Deserialize<IncomingData>(jsonString);
             using (var httpClient = new HttpClient())
             {
@@ -30,7 +33,7 @@ public class MoviesContextSeed
         }
         if (!context.Movies.Any() || !context.Genres.Any() || !context.Actors.Any())
         {
-            string jsonString = File.ReadAllText("../Infrastructure/Data/SeedData/movies.json");
+            string jsonString = File.ReadAllText(mainPath + "/Data/SeedData/movies.json");
             IncomingData moviesData = JsonSerializer.Deserialize<IncomingData>(jsonString);
             List<Movie> movies = new List<Movie>();
             List<Actor> actors = new List<Actor>();

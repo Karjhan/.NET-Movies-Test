@@ -4,5 +4,5 @@ export interface IMovieFetchParams{
     search?: string,
     sort?: string,
     actorIds?: Array<string>
-    genreIds?: Array<string>
+    genreId?: string
 }

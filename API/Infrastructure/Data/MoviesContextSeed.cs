@@ -25,7 +25,7 @@ public class MoviesContextSeed
                     var uriWithoutQuery = uri.GetLeftPart(UriPartial.Path);
                     var fileExtension = Path.GetExtension(uriWithoutQuery);
                     var fileName = Regex.Replace(data.name.Replace(" ", "_"), @"[\\/:*?^<>|]", "_");
-                    var path = Path.Combine(_environment.WebRootPath + "\\images\\movies", $"{fileName}{fileExtension}");
+                    var path = Path.Combine(_environment.IsDevelopment() ? _environment.WebRootPath + "\\images\\movies" : _environment.WebRootPath + "/images/movies", $"{fileName}{fileExtension}");
                     var imageBytes = await httpClient.GetByteArrayAsync(uri);
                     await File.WriteAllBytesAsync(path, imageBytes);
                 }

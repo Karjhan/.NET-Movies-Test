@@ -24,7 +24,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         return await _moviesContext.Set<T>().ToListAsync();
     }
 
-    public async Task<T?> GetEntityWithSpecification(ISpecification<T> specification)
+    public async Task<T?> GetEntityWithSpecificationAsync(ISpecification<T> specification)
     {
         return await ApplySpecification(specification).FirstOrDefaultAsync();
     }

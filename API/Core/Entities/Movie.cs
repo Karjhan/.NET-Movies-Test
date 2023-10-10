@@ -4,7 +4,7 @@ public class Movie : BaseEntity
 {
     public string Name { get; set; }
 
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
     public int Year { get; set; }
 
@@ -14,7 +14,7 @@ public class Movie : BaseEntity
 
     public List<Actor> Actors { get; set; }
 
-    public string CoverURL { get; set; }
+    public string? CoverURL { get; set; }
 
-    public string ImdbURL { get; set; }
+    public string? ImdbURL { get; set; }
 }

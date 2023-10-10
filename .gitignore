@@ -282,7 +282,6 @@ FakesAssemblies/
 *.GhostDoc.xml
 
 # Node.js Tools for Visual Studio
-.env
 .ntvs_analysis.dat
 node_modules/
 node_modules
@@ -445,6 +444,3 @@ _UpgradeReport_Files/
 Thumbs.db
 Desktop.ini
 .DS_Store
-
-
-appsettings.Development.json

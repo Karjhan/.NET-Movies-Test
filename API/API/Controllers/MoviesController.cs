@@ -45,7 +45,7 @@ public class MoviesController : BaseAPIController
     public async Task<ActionResult<Movie>> GetMovieById(Guid id)
     {
         ISpecification<Movie> specification = new MoviesWithActorsAndGenresSpecification(id);
-        Movie movie = await _movieRepository.GetEntityWithSpecification(specification);
+        Movie movie = await _movieRepository.GetEntityWithSpecificationAsync(specification);
         if (movie is null)
         {
             return NotFound(new APIResponse(404));

@@ -1,6 +1,7 @@
 ﻿using Core.Interfaces;
 using Infrastructure;
 using Infrastructure.Data.DataContexts;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Extensions;
@@ -9,6 +10,8 @@ public static class ApplicationServicesExtensions
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
     {
+        // Add IHosting services
+        services.AddHostedService<PrinterBackgroundTask>();
         // Add scoped services
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         // Add AutoMapper for object mapping

@@ -33,19 +33,21 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-using var scope = app.Services.CreateScope();
-var services = scope.ServiceProvider;
-var context = services.GetRequiredService<MoviesContext>();
-var env = services.GetRequiredService<IHostingEnvironment>();
-var logger = services.GetRequiredService<ILogger<Program>>();
-try
+using (var scope = app.Services.CreateScope())
 {
-    await context.Database.MigrateAsync();
-    await MoviesContextSeed.SeedAsync(context,env);
-}
-catch (Exception e)
-{
-    logger.LogError(e, "An error occured during migration!");
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<MoviesContext>();
+    var env = services.GetRequiredService<IHostingEnvironment>();
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    try
+    {
+        await context.Database.MigrateAsync();
+        await MoviesContextSeed.SeedAsync(context,env);
+    }
+    catch (Exception e)
+    {
+        logger.LogError(e, "An error occured during migration!");
+    } 
 }
 
 app.Run();

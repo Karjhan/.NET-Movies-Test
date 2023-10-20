@@ -8,7 +8,7 @@ public class MoviesWithActorsAndGenresSpecification : BaseSpecification<Movie>
         : base(movie =>
             (string.IsNullOrEmpty(movieSpecificationParams.Search) || movie.Name.ToLower().Contains(movieSpecificationParams.Search)) 
             &&
-            (movieSpecificationParams.ActorIds == null || movieSpecificationParams.ActorIds.Count == 0 || movie.Actors.Select(actor => actor.Id).Contains(movieSpecificationParams.ActorIds[0])) 
+            (movieSpecificationParams.ActorIds == null || movieSpecificationParams.ActorIds.Count == 0 || movie.Actors.Any(actor => movieSpecificationParams.ActorIds.Contains(actor.Id))) 
             &&
             (!movieSpecificationParams.GenreId.HasValue || movie.Genres.Select(genre => genre.Id).Any(id => id == movieSpecificationParams.GenreId))
             )

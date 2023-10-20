@@ -1,0 +1,15 @@
+# config files
+.github/
+.vscode/
+.editorconfig
+.eslintrc
+.git
+.gitignore
+
+# documentation
+LICENSE
+CHANGELOG.md
+README.md
+
+# build files
+node_modules/

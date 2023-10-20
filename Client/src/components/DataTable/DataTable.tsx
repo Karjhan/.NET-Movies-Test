@@ -27,7 +27,7 @@ const DataTable = <T extends object>(props: IDataTableProps<T> & { children?: Re
                                         :
                                         (title.toUpperCase() === "IMDBURL"
                                             ?
-                                            <a href={element[title]}>{element[title]}</a>
+                                            <a href={element[title]} target='_blank'>{element[title]}</a>
                                             :
                                             <>{element[title]}</>))}
                             </td>
